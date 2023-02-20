@@ -3,15 +3,14 @@ const PostModel = require("../model/Post.model");
 const posts = express.Router();
 
 posts.get("/", async (req, res) => {
-    console.log(req.body)
+
     try {
-        const posts = await PostModel.find();
+        const posts = await PostModel.find(req.body);
         res.status(200).send(posts);
     } catch (err) {
         res.status(500).send({ error: e.message });
     }
 });
-
 
 
 posts.get("/top", async (req, res) => {
