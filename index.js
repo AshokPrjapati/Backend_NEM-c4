@@ -11,6 +11,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.get("/", () => {
+    respond.send("welcome to LinkedIn backend");
+})
 app.use("/users", user);
 app.use(authentication);
 app.use("/posts", posts)
